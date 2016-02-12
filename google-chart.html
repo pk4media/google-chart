@@ -213,10 +213,8 @@ Data can be provided in one of three ways:
     _chartTypes: null,
 
     _readyForAction: function(e, detail, sender) {
-      this._loadPackageByChartType();
-
       google.load("visualization", "1", {
-        packages: this._packages[this.type],
+        packages: ['corechart', 'table', 'gauge', 'timeline', 'treemap'],
         callback: function() {
           this._isReady = true;
           this._loadChartTypes();
@@ -312,27 +310,6 @@ Data can be provided in one of three ways:
         'gauge': google.visualization.Gauge,
         'timeline': google.visualization.Timeline,
         'treemap': google.visualization.TreeMap
-      };
-    },
-
-    _loadPackageByChartType: function() {
-      this._packages = {
-        'area': 'corechart',
-        'bar': 'corechart',
-        'bubble': 'corechart',
-        'candlestick': 'corechart',
-        'column': 'corechart',
-        'combo': 'corechart',
-        'geo': 'corechart',
-        'histogram': 'corechart',
-        'line': 'corechart',
-        'pie': 'corechart',
-        'scatter': 'corechart',
-        'stepped-area': 'corechart',
-        'table': 'table',
-        'gauge': 'gauge',
-        'timeline': 'timeline',
-        'treemap': 'treemap'
       };
     },
 
